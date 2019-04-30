@@ -11,6 +11,6 @@ package paquetecinco;
  */
 public class CargosFamiliares {
     
-    public static double descuento_familia = 0.03;
+    public static double descuento_familia = 1330 * 0.03;
     
 }

@@ -11,6 +11,6 @@ package paquetetres;
  */
 public class Edad {
     
-    public static double descuento_edad = 0.1;
+    public static double descuento_edad = 1330 * 0.1;
     
 }

@@ -11,6 +11,6 @@ package paquetecuatro;
  */
 public class EstadoCivil {
     
-    public static double descuento_civil = 0.05;
+    public static double descuento_civil = 1330 * 0.05;
     
 }

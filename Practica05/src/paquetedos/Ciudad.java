@@ -11,6 +11,6 @@ package paquetedos;
  */
 public class Ciudad {
     
-        public static double descuento_ciudad = 0.2;
+        public static double descuento_ciudad = 1330 * 0.2;
     
 }

@@ -5,7 +5,10 @@
  */
 package paquetePrincipal;
 
+
 import java.util.Scanner;
+
+//Se importa los paquetes con las variables que se usaran
 import paquetedos.Ciudad;
 import paquetetres.Edad;
 import paquetecuatro.EstadoCivil;
@@ -22,10 +25,11 @@ public class Practica05 {
      */
     public static void main(String[] args) {
         
+        //Se crea un scanner para el ingreso de datos por teclado
         Scanner scan = new Scanner(System.in);
         
-        int matricula = 1330;
-        
+       //Ingreso e inicializacion de variables
+        double matricula = 1330.00;
         System.out.println("Ingrese la ciudad de la cual es proveniente");
         String ciudad = scan.nextLine();
         System.out.println("Ingrese su edad");
@@ -33,52 +37,49 @@ public class Practica05 {
         scan.nextLine();
         System.out.println("Ingrese su estado civil (soltero o casado)");
         String estado_civil = scan.nextLine();
-        System.out.println("Tiene cargas familiares (si o no)");
-        String familia = scan.nextLine();
+        System.out.println("Ingrese la cantidad de cargas familiares");
+        int familia = scan.nextInt();
         double descuento;
         double descuento1;
         double descuento2;
         double descuento3;
-        
-        double descuento_total;
         double total;
         double valor_con_tramite;
         
-        double ciudad_porcentaje = Ciudad.descuento_ciudad;
-        double edad_porcentaje = Edad.descuento_edad;
-        double civil_porcentaje = EstadoCivil.descuento_civil;
-        double familia_porcentaje = CargosFamiliares.descuento_familia;
-        
+        /*
+        Uso de condicionales para saber el descuento preciso de acuerdo a las 
+        condiciones del estudiante
+        */
         
         if (ciudad.equals("Loja") || ciudad.equals("Zamora")){
-            descuento = ciudad_porcentaje;
-        }else{
+            descuento = Ciudad.descuento_ciudad;
+        } else {
             descuento = 0;
         }
-        if (edad>=17 || edad<20){
-                descuento1 = edad_porcentaje;
-            } else {
-                descuento1 = 0;
-        }
-        if (estado_civil.equals("Casado")){
-                descuento2 = civil_porcentaje;
             
+        if (edad>=17 || edad<20){
+            descuento1 = Edad.descuento_edad;
         } else {
-                descuento2 = 0;
+            descuento1 = 0;
         }
-        if (familia.equals("Si")){
-                descuento3 = familia_porcentaje;
-            } else {
-                descuento3 = 0;
-            }
+        if (estado_civil.equals("casado")){
+            descuento2 = EstadoCivil.descuento_civil;
+        } else {
+            descuento2 = 0;
+        }
+        if (familia>0){
+            descuento3 = CargosFamiliares.descuento_familia;
+        } else {
+            descuento3 = 0;
+        }
         
- 
-        descuento_total = descuento + descuento1 + descuento2 + descuento3;
-       
-        total = (matricula * descuento_total);
+        //Operacion para calcular el valor total de la matricula
+        total = matricula - descuento - descuento1 - descuento2 - descuento3;
         valor_con_tramite = total + (total*0.02);
         
-        System.out.printf("El costo final de la  matricula es: \n%s",
+        
+        //Mostrar en pantalla el resultado total de la pantalla
+        System.out.printf("El costo final de la  matricula es: \n%.2f",
                 valor_con_tramite);
         
         
